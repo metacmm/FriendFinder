@@ -24,9 +24,9 @@
             <hr>
             <h3>About You</h3>
             <h4>Name(Required)</h4>
-            <input>
+            <input type="text" id="name" class="form-control" required>
             <h4>Link to Photo Image(Required)</h4>
-            <input>
+            <input type="text" id="photo" class="form-control" required>
             <hr>
 
             <h3>Question 1</h3>
@@ -134,6 +134,16 @@
         <br>
         <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">Submit</button>
     </form>
+    <hr>
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <a href ="api/friends">API Friends List</a>
+                |
+                <a href ="#">Github Repo</a>
+            </p>
+        </div>
+    </footer>
 </div>
 
     <script>
@@ -156,6 +166,9 @@
         for (var selector in config) {
             $(selector).chosen(config[selector]);
         }
+
+
+
     </script>
 
 </body>
