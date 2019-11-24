@@ -6,31 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder</title>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery.js"></script>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!--jQuery-->
-    <script src="https://code.jquery.com/jquery.js"></script>
     <!--chosen-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <h2>Survey Questions</h2>
-        <hr>
-        <h3>About You</h3>
-        <h4>Name(Required)</h4>
-        <input>
-        <h4>Link to Photo Image(Required)</h4>
-        <input>
-        <hr>
-        <h3>Question 1</h3>
-        <!--div>
+    
+        <div class="container">
+                <form>
+            <h2>Survey Questions</h2>
+            <hr>
+            <h3>About You</h3>
+            <h4>Name(Required)</h4>
+            <input>
+            <h4>Link to Photo Image(Required)</h4>
+            <input>
+            <hr>
+
+            <h3>Question 1</h3>
             <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select data-placeholder="Select an option" class="chosen-select" id="q1"
-                style="display: none">
+            <select class="chosen-select" id="q1">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h3>Question 2</h3>
+            <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+            <select class="chosen-select" id="q2">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -38,162 +49,115 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
-            <div class="chosen-container chosen-container-single" title style="width: 200px;">
-                <a class="chosen-single chosen-default">
-                    <span>Select an option</span>
-                    <div>
-                        <b></b>
-                    </div>
-                </a>
-                <div class="chosen-drop">
-                    <div class="chosen-search-input" type="input" autocomplete="off" tabindex="2">
-                    </div>
-                    <ul class="chosen-results">
-                        <li class="active-result" data-option-array-index="1">1 (Strongly Disagree)</li>
-                        <li class="active-result" data-option-array-index="2">2</li>
-                        <li class="active-result" data-option-array-index="3">3</li>
-                        <li class="active-result" data-option-array-index="4">4</li>
-                        <li class="active-result" data-option-array-index="5">5 (Strongly Agree)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="chosen-container chosen-container-single" title="" style="width: 350px;"><a
-                    class="chosen-single chosen-default">
-                    <span>Choose a Country...</span>
-                    <div><b></b></div>
-                </a>
-                <div class="chosen-drop">
-                    <div class="chosen-search">
-                        <input class="chosen-search-input" type="text" autocomplete="off" tabindex="2">
-                    </div>
-                    <ul class="chosen-results">
-                        <li class="active-result" data-option-array-index="1">1 (Strongly Disagree)</li>
-                        <li class="active-result" data-option-array-index="2">2</li>
-                        <li class="active-result" data-option-array-index="3">3</li>
-                        <li class="active-result" data-option-array-index="4">4</li>
-                        <li class="active-result" data-option-array-index="5">5 (Strongly Agree)</li>
-                    </ul>
-                </div>
-            </div>
-        </div-->
+            <h3>Question 3</h3>
+            <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
+            <select class="chosen-select" id="q1">
+                <option></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h3>Question 4</h3>
+            <h4>You rarely do something just out of sheer curiosity.</h4>
+            <select class="chosen-select" id="q1">
+                <option></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h3>Question 5</h3>
+            <h4>People can rarely upset you.</h4>
+            <select class="chosen-select" id="q1">
+                <option></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h3>Question 6</h3>
+            <h4>It is often difficult for you to relate to other people’s feelings.</h4>
+            <select class="chosen-select" id="q1">
+                <option></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h3>Question 7</h3>
+            <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
+            <select class="chosen-select" id="q1">
+                <option></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h3>Question 8</h3>
+            <h4>You rarely get carried away by fantasies and ideas.</h4>
+            <select class="chosen-select" id="q1">
+                <option></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h3>Question 9</h3>
+            <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or
+                not.</h4>
+            <select class="chosen-select" id="q1">
+                <option></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h3>Question 10</h3>
+            <h4>You feel more energetic after spending time with a group of people.</h4>
+            <select class="chosen-select" id="q1">
+                <option></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        <br>
+        <br>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">Submit</button>
+    </form>
+</div>
 
-        <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-        <select class="chosen-select" id="q1" style="display: none;">
-            <option value=""></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q1_chosen"><a
-                class="chosen-single chosen-default"><span>Select an Option</span>
-                <div><b></b></div>
-            </a>
-            <div class="chosen-drop">
-                <div class="chosen-search"><input type="text" autocomplete="off"></div>
-                <ul class="chosen-results">
-                    <li class="active-result" data-option-array-index="1" style>1 (Strongly Disagree)</li>
-                    <li class="active-result" data-option-array-index="2" style>2</li>
-                    <li class="active-result" data-option-array-index="3" style>3</li>
-                    <li class="active-result" data-option-array-index="4" style>4</li>
-                    <li class="active-result" data-option-array-index="5" style>5 (Strongly Agree)</li>
-                </ul>
-            </div>
-        </div>
-        <h3>Question 2</h3>
+    <script>
+        var config = {
+            ".chosen-select": {},
+            ".chosen-select-deselect": {
+                allow_single_deselect: true
+            },
+            ".chosen-select-no-single": {
+                disable_search_threshold: 10
+            },
+            ".chosen-select-no-results": {
+                no_results_text: "Oops, nothing found!"
+            },
+            ".chosen-select-width": {
+                width: "95%"
+            }
+        };
 
-        <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
-        <select class="chosen-select" id="q1">
-            <option></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <h3>Question 3</h3>
-        <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
-        <select class="chosen-select" id="q1">
-            <option></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <h3>Question 4</h3>
-        <h4>You rarely do something just out of sheer curiosity.</h4>
-        <select class="chosen-select" id="q1">
-            <option></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <h3>Question 5</h3>
-        <h4>People can rarely upset you.</h4>
-        <select class="chosen-select" id="q1">
-            <option></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <h3>Question 6</h3>
-        <h4>It is often difficult for you to relate to other people’s feelings.</h4>
-        <select class="chosen-select" id="q1">
-            <option></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <h3>Question 7</h3>
-        <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
-        <select class="chosen-select" id="q1">
-            <option></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <h3>Question 8</h3>
-        <h4>You rarely get carried away by fantasies and ideas.</h4>
-        <select class="chosen-select" id="q1">
-            <option></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <h3>Question 9</h3>
-        <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or
-            not.</h4>
-        <select class="chosen-select" id="q1">
-            <option></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <h3>Question 10</h3>
-        <h4>You feel more energetic after spending time with a group of people.</h4>
-        <select class="chosen-select" id="q1">
-            <option></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-    </div>
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+    </script>
+
 </body>
 
 </html>
