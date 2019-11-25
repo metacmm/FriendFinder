@@ -30,7 +30,7 @@
             <hr>
 
             <h3>Question 1</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+            <h4>You enjoy vibrant social events with lots of people.</h4>
             <select class="chosen-select" id="q1">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -40,7 +40,7 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <h3>Question 2</h3>
-            <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+            <h4>You often spend time exploring unrealistic yet intriguing ideas.</h4>
             <select class="chosen-select" id="q2">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -50,7 +50,7 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <h3>Question 3</h3>
-            <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
+            <h4>Your travel plans are more likely to look like a rough list of ideas than a detailed itinerary.</h4>
             <select class="chosen-select" id="q3">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -60,7 +60,7 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <h3>Question 4</h3>
-            <h4>You rarely do something just out of sheer curiosity.</h4>
+            <h4>You often think about what you should have said in a conversation long after it has taken place.</h4>
             <select class="chosen-select" id="q4">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -70,7 +70,7 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <h3>Question 5</h3>
-            <h4>People can rarely upset you.</h4>
+            <h4>If your friend is sad about something, your first instinct is to support them emotionally, not try to solve their problem.</h4>
             <select class="chosen-select" id="q5">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -90,7 +90,7 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <h3>Question 7</h3>
-            <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
+            <h4>People can rarely upset you.</h4>
             <select class="chosen-select" id="q7">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -100,7 +100,7 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <h3>Question 8</h3>
-            <h4>You rarely get carried away by fantasies and ideas.</h4>
+            <h4>You have a careful and methodical approach to life.</h4>
             <select class="chosen-select" id="q8">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -110,8 +110,7 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <h3>Question 9</h3>
-            <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or
-                not.</h4>
+            <h4>You are still bothered by the mistakes you made a long time ago.</h4>
             <select class="chosen-select" id="q9">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -121,7 +120,7 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <h3>Question 10</h3>
-            <h4>You feel more energetic after spending time with a group of people.</h4>
+            <h4>At parties and similar events you can mostly be found farther away from the action.</h4>
             <select class="chosen-select" id="q10">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -145,6 +144,26 @@
                 </p>
             </div>
         </footer>
+        <div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel">Best Match</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4><p id="match-name"></p></h4>
+                        <img id="match-photo">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         var config = {
@@ -205,6 +224,9 @@
                 console.log(newFriend);
                 $.post("/api/friends", newFriend, function (data) {
                     console.log(data);
+                    $("#match-name").text(data.name);
+                    $("#match-photo").attr("src", data.photo);
+                    $("#friendModal").modal("toggle");
                 });
             } else {
                 $("#p-message").text("Missing required fields!");
