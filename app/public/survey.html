@@ -17,9 +17,9 @@
 </head>
 
 <body>
-    
-        <div class="container">
-                <form>
+
+    <div class="container">
+        <form>
             <h2>Survey Questions</h2>
             <hr>
             <h3>About You</h3>
@@ -51,7 +51,7 @@
             </select>
             <h3>Question 3</h3>
             <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
-            <select class="chosen-select" id="q1">
+            <select class="chosen-select" id="q3">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -61,7 +61,7 @@
             </select>
             <h3>Question 4</h3>
             <h4>You rarely do something just out of sheer curiosity.</h4>
-            <select class="chosen-select" id="q1">
+            <select class="chosen-select" id="q4">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -71,7 +71,7 @@
             </select>
             <h3>Question 5</h3>
             <h4>People can rarely upset you.</h4>
-            <select class="chosen-select" id="q1">
+            <select class="chosen-select" id="q5">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -81,7 +81,7 @@
             </select>
             <h3>Question 6</h3>
             <h4>It is often difficult for you to relate to other people’s feelings.</h4>
-            <select class="chosen-select" id="q1">
+            <select class="chosen-select" id="q6">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -91,7 +91,7 @@
             </select>
             <h3>Question 7</h3>
             <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
-            <select class="chosen-select" id="q1">
+            <select class="chosen-select" id="q7">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -101,7 +101,7 @@
             </select>
             <h3>Question 8</h3>
             <h4>You rarely get carried away by fantasies and ideas.</h4>
-            <select class="chosen-select" id="q1">
+            <select class="chosen-select" id="q8">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -112,7 +112,7 @@
             <h3>Question 9</h3>
             <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or
                 not.</h4>
-            <select class="chosen-select" id="q1">
+            <select class="chosen-select" id="q9">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -122,7 +122,7 @@
             </select>
             <h3>Question 10</h3>
             <h4>You feel more energetic after spending time with a group of people.</h4>
-            <select class="chosen-select" id="q1">
+            <select class="chosen-select" id="q10">
                 <option></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -130,22 +130,22 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
-        <br>
-        <br>
-        <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">Submit</button>
-    </form>
-    <hr>
-    <footer class="footer">
-        <div class="container">
-            <p>
-                <a href ="api/friends">API Friends List</a>
-                |
-                <a href ="#">Github Repo</a>
-            </p>
-        </div>
-    </footer>
-</div>
-
+            <br>
+            <br>
+            <p id="p-message" style="color: red"></p>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">Submit</button>
+        </form>
+        <hr>
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    <a href="api/friends">API Friends List</a>
+                    |
+                    <a href="#">Github Repo</a>
+                </p>
+            </div>
+        </footer>
+    </div>
     <script>
         var config = {
             ".chosen-select": {},
@@ -167,10 +167,50 @@
             $(selector).chosen(config[selector]);
         }
 
+        var validateForm = function () {
+            var isValidate = true;
+            $(".form-control").each(function () {
+                if ($(this).val().trim() === "") {
+                    isValidate = false;
+                }
+            });
+            $(".chosen-select").each(function () {
+                if ($(this).val() === "") {
+                    isValidate = false;
+                }
+            });
 
+            return isValidate;
+        }
 
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            if (validateForm()) {
+                var newFriend = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    scores: [
+                        parseInt($("#q1").val()),
+                        parseInt($("#q2").val()),
+                        parseInt($("#q3").val()),
+                        parseInt($("#q4").val()),
+                        parseInt($("#q5").val()),
+                        parseInt($("#q6").val()),
+                        parseInt($("#q7").val()),
+                        parseInt($("#q8").val()),
+                        parseInt($("#q9").val()),
+                        parseInt($("#q10").val()),
+                    ]
+                };
+                console.log(newFriend);
+                $.post("/api/friends", newFriend, function (data) {
+                    console.log(data);
+                });
+            } else {
+                $("#p-message").text("Missing required fields!");
+            }
+        });
     </script>
-
 </body>
 
 </html>
