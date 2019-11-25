@@ -140,7 +140,7 @@
                 <p>
                     <a href="api/friends">API Friends List</a>
                     |
-                    <a href="#">Github Repo</a>
+                    <a href="https://github.com/metacmm/FriendFinder">Github Repo</a>
                 </p>
             </div>
         </footer>
@@ -227,6 +227,8 @@
                     $("#match-name").text(data.name);
                     $("#match-photo").attr("src", data.photo);
                     $("#friendModal").modal("toggle");
+                    $(".chosen-select").val("");
+                    $(".form-control").val("");
                 });
             } else {
                 $("#p-message").text("Missing required fields!");
